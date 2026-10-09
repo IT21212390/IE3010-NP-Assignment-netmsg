@@ -1,0 +1,19 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c11 -pthread
+LDFLAGS = -pthread
+
+SERVER = server_2390
+CLIENT = client_2390
+
+all: $(SERVER) $(CLIENT)
+
+$(SERVER): server_2390.c
+	$(CC) $(CFLAGS) -o $(SERVER) server_2390.c $(LDFLAGS)
+
+$(CLIENT): client_2390.c
+	$(CC) $(CFLAGS) -o $(CLIENT) client_2390.c $(LDFLAGS)
+
+clean:
+	rm -f $(SERVER) $(CLIENT)
+
+.PHONY: all clean
